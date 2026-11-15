@@ -1,0 +1,20 @@
+# ==============================================================================
+# Azure Authentication Variables (Sanitized Example)
+# Copy this file to terraform.tfvars and fill in your actual values.
+# NEVER commit your actual terraform.tfvars containing secrets to GitHub!
+# ==============================================================================
+
+subscription_id = "00000000-0000-0000-0000-000000000000"
+tenant_id       = "00000000-0000-0000-0000-000000000000"
+client_id       = "00000000-0000-0000-0000-000000000000"
+client_secret   = "Your_Service_Principal_Secret_Here"
+
+# Central India Infrastructure
+central_india_location  = "Central India"
+central_india_rg_name   = "rg-central-india-peering"
+central_india_vnet_name = "vnet-central-india"
+
+# East US Infrastructure
+east_us_location        = "East US"
+east_us_rg_name         = "rg-east-us-peering"
+east_us_vnet_name       = "vnet-east-us"

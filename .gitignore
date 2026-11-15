@@ -1,0 +1,36 @@
+# Local .terraform directories
+**/.terraform/*
+.terraform/
+
+# State files & backups (NEVER commit these!)
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.backup
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude ALL .tfvars files with secrets
+*.tfvars
+*.tfvars.json
+terraform.tfvars
+
+# Allow ONLY example tfvars
+!*.example.tfvars
+!terraform.tfvars.example
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Scratch & temporary reference notes
+reffilesubnetpeering.txt
+*.tmp
+*.bak
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
