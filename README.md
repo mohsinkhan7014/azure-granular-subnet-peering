@@ -63,6 +63,22 @@ flowchart LR
 
 ---
 
+## Limitations & Considerations
+
+While Subnet Peering provides fine-grained network segmentation, you should consider the following platform limitations before adopting it in production:
+
+| Limitation / Constraint | Details |
+| :--- | :--- |
+| **Scale Limit** | Azure enforces a maximum limit of **400 subnets per peering connection**. |
+| **Azure Virtual WAN (vWAN)** | Subnet-level peering is **not supported** with Azure Virtual WAN secured or standard hubs. |
+| **Azure Virtual Network Manager (AVNM)** | AVNM cannot currently differentiate between standard whole-VNet peering and subnet-scoped peering. Managing the same VNets in an AVNM mesh or hub-spoke configuration may conflict with or overwrite subnet peering states. |
+| **Azure Portal GUI** | The Azure Portal does not currently feature a visual subnet selector for peering. Subnet peering must be managed via **Terraform, Azure CLI, Azure PowerShell, Bicep/ARM, or REST API**. |
+| **Overlapping Subnet CIDRs** | While the overarching VNets can share overlapping address space (one of subnet peering's greatest benefits), the **participating subnets themselves must strictly have unique, non-overlapping IP spaces**. |
+| **Symmetric Declaration** | Subnet peering must be configured with exact symmetry: all subnets listed in `local_subnet_names` on Side A must be mapped as `remote_subnet_names` on Side B. |
+| **Gateway Transit Nuances** | Gateway transit allows selective spoke subnet exposure to hub VPN/ExpressRoute gateways, but route propagation and gateway transit settings must be deliberately coordinated on both peering directions. |
+
+---
+
 ## Repository Structure
 
 ```text
